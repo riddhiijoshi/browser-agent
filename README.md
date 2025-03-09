@@ -1,21 +1,42 @@
-# browser-agent
+# Browser-Agent
 
-**About :**
-You have to send in a Myntra product with the exact amount of a product on Myntra, and the agent will check if the price you entered is the exact same amouunt which is present on the Myntra website for that specific product.
+## Overview
+The **Browser-Agent** verifies the price of a specified product on Myntra by comparing the user-provided price with the actual price listed on the Myntra website. This ensures accuracy in price validation for a given product.
 
-**Input param :**
-You will have to send 3 input params.
-requirement,expected_output,link.
+## How It Works
+1. The user provides three input parameters:
+   - **requirement**: The brand name followed by the product name.
+   - **expected_output**: The expected price of the product in INR.
+   - **link**: The homepage link of Myntra.
+2. The agent fetches the actual price from Myntra.
+3. It compares the fetched price with the expected price.
+4. Returns a validation result based on the comparison.
 
-Requirement : should be the Brand name, followed by the product name.
-Expected_ouput : the exact amount in Rs. which will be compared.
-link : Myntra home page link. 
+## Input Parameters
+| Parameter         | Description                                      |
+|------------------|--------------------------------------------------|
+| **requirement**  | Brand name followed by the product name.        |
+| **expected_output** | Expected price in INR for validation.       |
+| **link**         | Myntra homepage link.                           |
 
-
-**Sample input :**
-
-**{
+## Sample Input
+```json
+{
   "requirement": "Give me the price for The Souled Store Violet Hooded Crop Pullover",
   "expected_output": "949",
   "link": "https://www.myntra.com"
-}**
+}
+```
+
+### Breakdown of Sample Input
+- **Brand Name**: The Souled Store  
+- **Product Name**: Violet Hooded Crop Pullover  
+- **Expected Price**: ₹949  
+- **Website**: [Myntra](https://www.myntra.com)
+
+## Expected Output
+The agent will return a validation result:
+- Successful validation : if expected_output matches the price on Myntra website.
+- Failed validation : if expected_output does not match the price on Myntra website.
+
+
