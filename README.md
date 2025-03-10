@@ -1,16 +1,17 @@
 # Browser-Agent
 
-## Overview
-The **Browser-Agent** verifies the price of a specified product on Myntra by comparing the user-provided price with the actual price listed on the Myntra website. This ensures accuracy in price validation for a given product.
+## About
+The **Browser-Agent** will verify the price of a specified product on Myntra by comparing the user-provided PRICE RANGE with the ACTUAL price listed on the Myntra website. 
+Followed by a validation that if the Actual price lies in the price range given by user, the product fits in his budget and he can make a purchase.
 
-## How It Works
-1. The user provides three input parameters:
+## Working
+1. The user will provide 3 input parameters:
    - **requirement**: The brand name followed by the product name.
    - **expected_output**: The expected price range (float) of the product in INR.
    - **link**: The homepage link of Myntra.
 2. The agent fetches the actual price from Myntra.
-3. It compares the fetched price with the expected price.
-4. Returns a validation result based on the comparison.
+3. It compares the fetched price with the expected price range.
+4. Returns a validation result based on the comparison , if user can make purcase or not.
 
 ## Input Parameters
 | Parameter         | Description                                      |
