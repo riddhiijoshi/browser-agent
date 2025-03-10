@@ -6,7 +6,7 @@ The **Browser-Agent** verifies the price of a specified product on Myntra by com
 ## How It Works
 1. The user provides three input parameters:
    - **requirement**: The brand name followed by the product name.
-   - **expected_output**: The expected price of the product in INR.
+   - **expected_output**: The expected price range (float) of the product in INR.
    - **link**: The homepage link of Myntra.
 2. The agent fetches the actual price from Myntra.
 3. It compares the fetched price with the expected price.
@@ -16,14 +16,14 @@ The **Browser-Agent** verifies the price of a specified product on Myntra by com
 | Parameter         | Description                                      |
 |------------------|--------------------------------------------------|
 | **requirement**  | Brand name followed by the product name.        |
-| **expected_output** | Expected price in INR for validation.       |
+| **expected_output** | Expected price range (float) in INR for validation.       |
 | **link**         | Myntra homepage link.                           |
 
 ## Sample Input
 ```json
 {
   "requirement": "Give me the price for The Souled Store Violet Hooded Crop Pullover",
-  "expected_output": "949",
+  "expected_output": [900.0, 1000.0],
   "link": "https://www.myntra.com"
 }
 ```
@@ -31,12 +31,13 @@ The **Browser-Agent** verifies the price of a specified product on Myntra by com
 ### Breakdown of Sample Input
 - **Brand Name**: The Souled Store  
 - **Product Name**: Violet Hooded Crop Pullover  
-- **Expected Price**: ₹949  
+- **Expected Price**: [900.0, 1000.0],
 - **Website**: [Myntra](https://www.myntra.com)
 
 ## Expected Output
 The agent will return a validation result:
-- Successful validation : if expected_output matches the price on Myntra website.
-- Failed validation : if expected_output does not match the price on Myntra website.
+
+- Successful validation and you can make the purchase : if price of product on Myntra is in the price range provided by user .
+- Failed validation : if price of product on Myntra is NOT in the price range provided by user .
 
 
