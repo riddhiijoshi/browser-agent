@@ -2,7 +2,6 @@ import json
 import logging
 from typing import TypedDict
 from langchain.tools import tool
-from src.dto.state import AgentState
 from src.llms.anthropic import Anthropic
 
 llm = Anthropic()

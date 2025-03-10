@@ -1,4 +1,4 @@
-from typing import Optional, TypedDict
+from typing import Optional, Tuple, TypedDict
 
 from anthropic import BaseModel
 
@@ -17,7 +17,7 @@ class AgentState(TypedDict):
 
 class InputData(BaseModel):
     requirement: str
-    expected_output: str
+    expected_output: Tuple[float, float]
     link: str
     entity: Optional[str] = None
     message: Optional[str] = None

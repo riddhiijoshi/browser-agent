@@ -2,7 +2,8 @@ import logging
 from langgraph.graph import StateGraph, END
 
 from src.llms.anthropic import Anthropic
-from src.tools.roles import AgentState, extract_product
+from src.dto.state import AgentState
+from src.tools.roles import extract_product
 from src.tools.webpage import open_webpage
 from src.tools.validate import validate_data
 

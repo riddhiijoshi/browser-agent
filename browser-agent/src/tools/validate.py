@@ -1,28 +1,32 @@
 import logging
 from langchain.tools import tool
-from typing import Dict, List
+from typing import Tuple
 
 logger = logging.getLogger(__name__)
 
 
 @tool
-def validate_data(price: str, expected_output: str):
+def validate_data(price: str, expected_output: Tuple[float, float]):
     """
-    Validate if the extracted price matches the expected output.
+    Validate if the extracted price falls within the expected price range.
     """
 
-    logger.debug(f"price extracted from website : {price}")
-    logger.debug(f"expected_output : {expected_output}")
+    try:
+        extracted_price = float(price)
+        min_price, max_price = expected_output
+    except ValueError:
+        return {"answer": "Validation failed. Invalid price format."}
+    except TypeError:
+        return {"answer": "Validation failed. Invalid price range format."}
 
-    if not price or not expected_output:
-        return {"answer": "Validation failed. Missing price or expected output."}
+    logger.debug(f"Price extracted from website is  {extracted_price}")
+    logger.debug(f"Expected price range is {min_price}-{max_price}")
 
-    if price == expected_output:
+    if min_price <= extracted_price <= max_price:
         return {
-            "answer": "Validation successful. Extracted price matches expected output."
+            "answer": f"Validation successful. The product price is : {extracted_price}. It is within the expected range {expected_output}. You can make the purchase. "
         }
     else:
-        logger.warning(
-            f"Validation failed. Expected: {expected_output}, Found: {price}"
-        )
-        return {"answer": "Failure"}
+        return {
+            "answer": f"Validation Failure. The product price is : {extracted_price}. It is out of the expected range {expected_output}."
+        }
