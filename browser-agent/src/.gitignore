@@ -1,0 +1,10 @@
+__pycache__
+
+# Environment file
+.env
+
+# workspace file
+*.code-workspace
+
+.idea/
+.venv/
