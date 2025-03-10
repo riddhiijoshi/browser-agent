@@ -19,7 +19,3 @@ class InputData(BaseModel):
     requirement: str
     expected_output: Tuple[float, float]
     link: str
-    entity: Optional[str] = None
-    message: Optional[str] = None
-    price: Optional[str] = None
-    answer: Optional[str] = None
