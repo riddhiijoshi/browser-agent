@@ -40,4 +40,8 @@ The agent will return a validation result:
 - Successful validation and you can make the purchase : if price of product on Myntra is in the price range provided by user .
 - Failed validation : if price of product on Myntra is NOT in the price range provided by user .
 
-
+## Important:
+Please make sure you are specifying the brand followed by the exact product name.
+example : H&M Shoulder Bag and Pouch
+brand : H&M 
+product : Shoulder Bag and Pouch

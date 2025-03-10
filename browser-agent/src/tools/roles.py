@@ -29,22 +29,22 @@ def extract_product(requirement: str, link: str):
     {link}
     </link>
 
-    Role : Everything after the word "Price for" in the requirement.
-    Product : Only the product name mentioned after the brand. It should not consider the brand name.
-    Sample names of brands - H&M, Zara, The Souled Store, Bonkers.
+    role : Everything after the "price for" or simialr words in the requirement.
+    product : Only the product name mentioned after the brand. It should not consider the brand name.
+
+    Instructions: 
+    1. Sample names of brands - H&M, Zara, The Souled Store, Bonkers.
+    2. Its crucial that you identify the barnd name. The brand name should always be inside "role" key.
 
     <example>
     Example:
-
     requirement = "Give me the price for The Souled Store Violet Hooded Crop Pullover"
-
     Your response should be:
     {{
         "link": "Given link",
         "role": "The Souled Store Violet Hooded Crop Pullover",
         "product":"Violet Hooded Crop Pullover",
     }}
-    </example>
 
     Make sure you return the correct action role from <requirement>.
     """
